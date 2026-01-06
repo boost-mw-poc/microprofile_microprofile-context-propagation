@@ -40,7 +40,7 @@ import org.eclipse.microprofile.context.spi.ContextManagerProvider;
  * <p>
  * Example usage:
  * </p>
- * 
+ *
  * <pre>
  * <code>ThreadContext threadContext = ThreadContext.builder()
  *     .propagated(ThreadContext.SECURITY, ThreadContext.APPLICATION)
@@ -77,7 +77,7 @@ public interface ThreadContext {
      * <p>
      * Example usage:
      * </p>
-     * 
+     *
      * <pre>
      * <code> ThreadContext threadContext = ThreadContext.builder()
      *                                                   .propagated(ThreadContext.APPLICATION, ThreadContext.SECURITY)
@@ -226,7 +226,7 @@ public interface ThreadContext {
          * For example, to run under the transaction of the thread of execution, with security context cleared and all
          * other thread contexts propagated:
          * </p>
-         * 
+         *
          * <pre>
          * <code> ThreadContext threadContext = ThreadContext.builder()
          *                                                   .unchanged(ThreadContext.TRANSACTION)
@@ -284,9 +284,9 @@ public interface ThreadContext {
      * Identifier for CDI context. CDI context controls the availability of CDI scopes. An empty/default CDI context
      * means that the thread does not have access to the scope of the session, request, and so forth that created the
      * contextualized action.
-     * 
+     *
      * For example, consider the following <code>&#64;RequestScoped</code> resource:
-     * 
+     *
      * <pre>
      * <code>
     &#64;RequestScoped
@@ -297,20 +297,20 @@ public interface ThreadContext {
     }
     </code>
      * </pre>
-     * 
+     *
      * CDI context propagation includes request, session and conversation contexts. When CDI context is propagated, all
      * of the above mentioned contexts that are currently active will be available to the contextualized task with
      * preserved state.
-     * 
+     *
      * <pre>
      * <code>
     ManagedExecutor exec = ManagedExecutor.builder()
         .propagated(ThreadContext.CDI, ThreadContext.APPLICATION)
         .build();
-    
+
     &#64;Inject
     MyRequestScopedBean requestBean;
-    
+
     &#64;GET
     public void foo() {
         exec.supplyAsync(() -&gt; {
@@ -325,7 +325,7 @@ public interface ThreadContext {
      *
      * If CDI context is 'cleared', currently active contexts will still be available to the contextualized task, but
      * their state will be erased.
-     * 
+     *
      * If CDI context is 'unchanged', access to CDI bean's contextual state will be non-deterministic. Namely, context
      * may be missing, or context from a different task may be applied instead. This option is discouraged, and only
      * should be used if CDI context is not used in an application.
@@ -350,13 +350,13 @@ public interface ThreadContext {
      * <p>
      * When using MicroProfile Config to specify defaults, the value <code>None</code> indicates an empty array. For
      * example,
-     * 
+     *
      * <pre>
      * mp.context.ThreadContext.unchanged = None
      * </pre>
-     * 
+     *
      * or
-     * 
+     *
      * <pre>
      * mp.context.ManagedExecutor.propagated = None
      * </pre>
@@ -366,7 +366,7 @@ public interface ThreadContext {
     /**
      * Identifier for security context. Security context controls the credentials that are associated with the thread.
      * An empty/default security context means that the thread is unauthenticated.
-     * 
+     *
      * @see ManagedExecutor.Builder#cleared
      * @see ManagedExecutor.Builder#propagated
      * @see ThreadContext.Builder
@@ -396,7 +396,7 @@ public interface ThreadContext {
      * <p>
      * Example usage:
      * </p>
-     * 
+     *
      * <pre>
      * <code>Executor contextSnapshot = threadContext.currentContextExecutor();
      * ...
@@ -420,7 +420,7 @@ public interface ThreadContext {
      * Wraps a <code>Callable</code> with context that is captured from the thread that invokes
      * <code>contextualCallable</code>.
      * </p>
-     * 
+     *
      * <p>
      * When <code>call</code> is invoked on the proxy instance, context is first established on the thread that will run
      * the <code>call</code> method, then the <code>call</code> method of the provided <code>Callable</code> is invoked.
@@ -467,7 +467,7 @@ public interface ThreadContext {
      * Wraps a <code>Consumer</code> with context that is captured from the thread that invokes
      * <code>contextualConsumer</code>.
      * </p>
-     * 
+     *
      * <p>
      * When <code>accept</code> is invoked on the proxy instance, context is first established on the thread that will
      * run the <code>accept</code> method, then the <code>accept</code> method of the provided <code>Consumer</code> is
@@ -516,7 +516,7 @@ public interface ThreadContext {
      * Wraps a <code>Function</code> with context that is captured from the thread that invokes
      * <code>contextualFunction</code>.
      * </p>
-     * 
+     *
      * <p>
      * When <code>apply</code> is invoked on the proxy instance, context is first established on the thread that will
      * run the <code>apply</code> method, then the <code>apply</code> method of the provided <code>Function</code> is
@@ -541,13 +541,13 @@ public interface ThreadContext {
      * Wraps a <code>Runnable</code> with context that is captured from the thread that invokes
      * <code>ContextualRunnable</code>.
      * </p>
-     * 
+     *
      * <p>
      * When <code>run</code> is invoked on the proxy instance, context is first established on the thread that will run
      * the <code>run</code> method, then the <code>run</code> method of the provided <code>Runnable</code> is invoked.
      * Finally, the previous context is restored on the thread, and control is returned to the invoker.
      * </p>
-     * 
+     *
      * @param runnable
      *            instance to contextualize.
      * @return contextualized proxy instance that wraps execution of the <code>run</code> method with context.
@@ -560,7 +560,7 @@ public interface ThreadContext {
      * <p>
      * Wraps a <code>Supplier</code> with context captured from the thread that invokes <code>contextualSupplier</code>.
      * </p>
-     * 
+     *
      * <p>
      * When <code>supply</code> is invoked on the proxy instance, context is first established on the thread that will
      * run the <code>supply</code> method, then the <code>supply</code> method of the provided <code>Supplier</code> is
@@ -590,7 +590,7 @@ public interface ThreadContext {
      * {@link ContextManager.Builder#withDefaultExecutorService(ExecutorService)}), or otherwise have no default
      * executor.
      * </p>
-     * 
+     *
      * <p>
      * If this thread context has no default executor, the new stage and all dependent stages created from it, and so
      * forth, have no default asynchronous execution facility and must raise
@@ -634,7 +634,7 @@ public interface ThreadContext {
      * {@link ContextManager.Builder#withDefaultExecutorService(ExecutorService)}), or otherwise have no default
      * executor.
      * </p>
-     * 
+     *
      * <p>
      * If this thread context has no default executor, the new stage and all dependent stages created from it, and so
      * forth, have no default asynchronous execution facility and must raise

@@ -43,7 +43,7 @@ public interface ThreadContextController {
      * <p>
      * Typically, patterns such as the following will be observed:
      * </p>
-     * 
+     *
      * <pre>
      * <code>
      * controllerA1 = contextSnapshotA.begin();
@@ -59,7 +59,7 @@ public interface ThreadContextController {
      * <p>
      * However, more advanced sequences such as the following are also valid:
      * </p>
-     * 
+     *
      * <pre>
      * <code>
      * controllerA1 = contextSnapshotA.begin();

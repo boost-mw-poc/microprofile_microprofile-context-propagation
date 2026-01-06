@@ -56,7 +56,7 @@ public interface ContextManager {
 
         /**
          * Use the specified {@link ThreadContextProvider} instances.
-         * 
+         *
          * @param providers
          *            the {@link ThreadContextProvider} instances to use.
          * @return this builder
@@ -67,14 +67,14 @@ public interface ContextManager {
          * Load all discoverable {@link ContextManagerExtension} instances via the {@link java.util.ServiceLoader}
          * mechanism on the current thread-context {@link ClassLoader} (unless overridden by
          * {@link #forClassLoader(ClassLoader)}).
-         * 
+         *
          * @return this builder
          */
         public ContextManager.Builder addDiscoveredContextManagerExtensions();
 
         /**
          * Use the specified {@link ContextManagerExtension} instances.
-         * 
+         *
          * @param extensions
          *            the {@link ContextManagerExtension} instances to use.
          * @return this builder
@@ -85,7 +85,7 @@ public interface ContextManager {
          * Load all discoverable {@link ThreadContextProvider} instances via the {@link java.util.ServiceLoader}
          * mechanism on the current thread-context {@link ClassLoader} (unless overridden by
          * {@link #forClassLoader(ClassLoader)}).
-         * 
+         *
          * @return this builder
          */
         public Builder addDiscoveredThreadContextProviders();
@@ -93,7 +93,7 @@ public interface ContextManager {
         /**
          * Use the given {@link ClassLoader} for {@link #addDiscoveredThreadContextProviders()} instead of the current
          * thread-context {@link ClassLoader}.
-         * 
+         *
          * @param classLoader
          *            the {@link ClassLoader} to use for {@link #addDiscoveredThreadContextProviders()}
          * @return this builder
@@ -103,7 +103,7 @@ public interface ContextManager {
         /**
          * Use the given {@link ExecutorService} to execute async tasks for contextualised {@link CompletableFuture} and
          * {@link CompletionStage} when no executor is specified.
-         * 
+         *
          * @param executorService
          *            the {@link ExecutorService} to use for async tasks when no executor is specified.
          * @return this builder
@@ -114,12 +114,12 @@ public interface ContextManager {
          * <p>
          * Creates a new {@link ContextManager} with the specified configuration.
          * </p>
-         * 
+         *
          * <p>
          * Creating a {@link ContextManager} will load and invoke all related {@link ContextManagerExtension} as
          * described in its documentation.
          * </p>
-         * 
+         *
          * @return a new {@link ContextManager} with the specified configuration.
          */
         public ContextManager build();

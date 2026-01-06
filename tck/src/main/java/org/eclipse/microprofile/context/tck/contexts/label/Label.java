@@ -32,7 +32,7 @@ public class Label {
 
     /**
      * Get the current 'label' context.
-     * 
+     *
      * @return current label.
      */
     public static String get() {
@@ -41,7 +41,7 @@ public class Label {
 
     /**
      * Set the current 'label' context.
-     * 
+     *
      * @param label
      *            new label.
      */

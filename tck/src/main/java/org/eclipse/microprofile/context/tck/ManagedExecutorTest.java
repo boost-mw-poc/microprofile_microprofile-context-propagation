@@ -1049,7 +1049,7 @@ public class ManagedExecutorTest extends Arquillian {
      * all dependent stages of the completed future that is created by the ManagedExecutor's failedFuture
      * implementation. Thread context is captured at each point where a dependent stage is added, rather than solely
      * upon creation of the initial stage or construction of the builder.
-     * 
+     *
      * @throws ExecutionException
      *             indicates test failure
      * @throws InterruptedException
@@ -2828,7 +2828,7 @@ public class ManagedExecutorTest extends Arquillian {
 
     /**
      * Verify that we can copy a CompletableFuture and get context propagation in the copy's dependent stages.
-     * 
+     *
      * @throws InterruptedException
      *             indicates test failure
      * @throws ExecutionException
@@ -2874,7 +2874,7 @@ public class ManagedExecutorTest extends Arquillian {
 
     /**
      * Verify that we can copy a CompletionStage and get context propagation in the copy's dependent stages.
-     * 
+     *
      * @throws InterruptedException
      *             indicates test failure
      * @throws ExecutionException
@@ -2920,7 +2920,7 @@ public class ManagedExecutorTest extends Arquillian {
 
     /**
      * Verify that we can obtain a ThreadContext with the same settings as the ManagedExecutor
-     * 
+     *
      * @throws InterruptedException
      *             indicates test failure
      * @throws ExecutionException
