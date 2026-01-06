@@ -31,6 +31,8 @@
 
     <properties>
         <inceptionYear>2018</inceptionYear>
+        <maven.compiler.source>9</maven.compiler.source>
+        <maven.compiler.target>9</maven.compiler.target>
         <!--  Dependencies - Test  -->
         <version.testng>7.4.0</version.testng>
         <!--  aligns with Arquillian TestNG version  -->

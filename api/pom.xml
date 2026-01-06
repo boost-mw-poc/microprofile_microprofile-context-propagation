@@ -28,4 +28,19 @@
     <name>MicroProfile Context Propagation</name>
     <description>MicroProfile Context Propagation :: API</description>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <configuration>
+                        <!-- https://github.com/checkstyle/checkstyle/issues/8240 -->
+                        <excludes>**/module-info.java</excludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>
