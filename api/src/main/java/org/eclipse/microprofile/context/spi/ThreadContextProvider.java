@@ -128,7 +128,7 @@ public interface ThreadContextProvider {
      * <p>
      * For example:
      * </p>
-     * 
+     *
      * <pre>
      * <code>
      * ManagedExecutor executor = ManagedExecutor.builder()

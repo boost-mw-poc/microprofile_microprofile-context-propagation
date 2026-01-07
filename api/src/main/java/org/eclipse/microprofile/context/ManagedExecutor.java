@@ -36,7 +36,7 @@ import org.eclipse.microprofile.context.spi.ContextManagerProvider;
  * <p>
  * Example usage:
  * </p>
- * 
+ *
  * <pre>
  * <code>ManagedExecutor executor = ManagedExecutor.builder().propagated(ThreadContext.APPLICATION).cleared(ThreadContext.ALL_REMAINING).build();
  * ...
@@ -58,7 +58,7 @@ import org.eclipse.microprofile.context.spi.ContextManagerProvider;
  * <p>
  * Example of single action with context propagation:
  * </p>
- * 
+ *
  * <pre>
  * CompletableFuture&lt;?&gt; future = executor
  *    .runAsync(runnable1)
@@ -122,7 +122,7 @@ import org.eclipse.microprofile.context.spi.ContextManagerProvider;
  * defined by EE Concurrency, must raise IllegalStateException upon invocation of the aforementioned life cycle methods,
  * in order to preserve compatibility with that specification.
  * </p>
- * 
+ *
  * <p>
  * Managed executors can forward all contextualised async tasks to a backing executor service if set with
  * {@link ContextManager.Builder#withDefaultExecutorService(ExecutorService)}. Otherwise, a new backing executor service
@@ -147,7 +147,7 @@ public interface ManagedExecutor extends ExecutorService {
      * <p>
      * Example usage:
      * </p>
-     * 
+     *
      * <pre>
      * <code> ManagedExecutor executor = ManagedExecutor.builder()
      *                                                  .maxAsync(5)
@@ -502,7 +502,7 @@ public interface ManagedExecutor extends ExecutorService {
     /**
      * Returns a <code>ThreadContext</code> which has the same propagation settings as this
      * <code>ManagedExecutor</code>, which uses this <code>ManagedExecutor</code> as its default executor.
-     * 
+     *
      * @return a ThreadContext with the same propagation settings as this ManagedExecutor.
      */
     ThreadContext getThreadContext();

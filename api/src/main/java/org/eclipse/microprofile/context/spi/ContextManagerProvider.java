@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * The container must register its <code>ContextManagerProvider</code> implementation via the <code>register</code>
  * method, or by providing an implementation via the standard {@link ServiceLoader} mechanism.
  * </p>
- * 
+ *
  * <p>
  * <code>ContextManagerProvider</code> implementations that wish to use the {@link ServiceLoader} registration mechanism
  * must include a file of the following name and location in their jar:
@@ -47,7 +47,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * The content of the aforementioned file must be exactly one line, specifying the fully qualified name of a
  * <code>ContextManagerProvider</code> implementation that is provided within the JAR file.
  * </p>
- * 
+ *
  * <p>
  * If there is no manually registered <code>ContextManagerProvider</code> (via
  * {@link #register(ContextManagerProvider)}), any call to {@link #instance()} will look up any
@@ -110,7 +110,7 @@ public interface ContextManagerProvider {
      * Gets a {@link ContextManager} for the current thread-context {@link ClassLoader}. This is equivalent to calling
      * <code>getContextManager(Thread.currentThread().getContextClassLoader())</code>, which is the default
      * implementation of this method.
-     * 
+     *
      * @return a {@link ContextManager} for the current thread-context {@link ClassLoader}.
      * @throws IllegalStateException
      *             if more than one {@link ThreadContextProvider} provides the same thread context
@@ -153,7 +153,7 @@ public interface ContextManagerProvider {
      * Returns a new {@link ContextManager.Builder} to create new {@link ContextManager} instances. Watch out that
      * instances created this way will not be automatically registered here, so you need to call
      * {@link #registerContextManager(ContextManager, ClassLoader)} yourself if you need to.
-     * 
+     *
      * @return a new {@link ContextManager.Builder}
      * @throws UnsupportedOperationException
      *             if the <code>ContextManagerProvider</code> always uses the same set of
@@ -167,7 +167,7 @@ public interface ContextManagerProvider {
      * Registers the given {@link ContextManager} for the given {@link ClassLoader}, so that further calls to
      * {@link #getContextManager(ClassLoader)} for the same {@link ClassLoader} will return this instance instead of
      * creating a new one.
-     * 
+     *
      * @param manager
      *            The {@link ContextManager} to register
      * @param classLoader
@@ -185,7 +185,7 @@ public interface ContextManagerProvider {
     /**
      * Releases a {@link ContextManager} that was previously registered with
      * {@link #registerContextManager(ContextManager, ClassLoader)}.
-     * 
+     *
      * @param manager
      *            The {@link ContextManager} to release
      * @throws UnsupportedOperationException
